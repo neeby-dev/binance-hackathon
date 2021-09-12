@@ -1,4 +1,5 @@
 import aiohttp
+from config.config import api_token_covalenthq
 
 
 async def get_nft_eth(address):
@@ -25,10 +26,13 @@ async def get_nft_eth(address):
 
 async def get_nft_bsc(address):
     url = f"https://api.covalenthq.com/v1/56/address/{address}/balances_v2/?nft=true"
+    params = {
+        'key': api_token_covalenthq
+    }
     tokens = {}
 
     async with aiohttp.ClientSession() as session:
-        async with session.get(url=url) as response:
+        async with session.get(url=url, params=params) as response:
             info = await response.json()
             info2 = info.get('data').get('items')
             for data in info2:

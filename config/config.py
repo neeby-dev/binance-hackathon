@@ -1,1 +1,2 @@
-telegram_token = '1763050156:AAHGRFm-Qko57XqJOUaFsZd8mZtnK9SJ68c'
+telegram_token = ''
+api_token_covalenthq = ''
